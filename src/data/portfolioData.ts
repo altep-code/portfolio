@@ -513,41 +513,7 @@ export const portfolioData: PortfolioData = {
       },
       accent: 'emerald',
     },
-    {
-      id: 'hiif',
-      title: {
-        fr: 'HIiF',
-        en: 'HIiF',
-      },
-      tagline: {
-        fr: 'Analyse des scrutins de l’Assemblée nationale en Bun/TypeScript',
-        en: 'French National Assembly vote analytics built with Bun & TypeScript',
-      },
-      description: {
-        fr: 'Application Bun et TypeScript dédiée à l’ingestion, au croisement et à la visualisation lisible des votes publics de l’Assemblée nationale afin d’explorer les positions des députés et groupes parlementaires.',
-        en: 'Bun and TypeScript application that ingests, structures, and visualizes public roll-call votes from the French National Assembly to make parliamentary voting records easy to inspect.',
-      },
-      year: '2025',
-      status: { fr: 'App Web / CLI', en: 'Web / CLI App' },
-      featured: false,
-      tags: ['TypeScript/Bun', 'Open Data', 'Web'],
-      highlights: {
-        fr: [
-          'Parsing rapide des données open data parlementaires avec le runtime Bun',
-          'Interface claire pour filtrer scrutins, groupes et votes individuels',
-        ],
-        en: [
-          'High-speed parliamentary open-data ingestion powered by Bun',
-          'Clean filtering across ballots, political groups, and individual votes',
-        ],
-      },
-      links: {
-        // EDIT HERE: Lien GitHub & démo live de HIiF
-        github: 'https://github.com/altep/hiif',
-        demo: '',
-      },
-      accent: 'amber',
-    },
+    
   ],
 
   // ==========================================================================
@@ -564,7 +530,7 @@ export const portfolioData: PortfolioData = {
       // EDIT HERE: Nom de votre établissement / lycée
       organization: 'Établissement BTS SIO (SLAM)',
       location: { fr: 'France', en: 'France' },
-      period: { fr: '2025 – En cours', en: '2025 – Present' },
+      period: { fr: '2026 – En cours', en: '2026 – Present' },
       summary: {
         fr: 'Solutions Logicielles et Applications Métiers : conception logicielle, programmation orientée objet, développement web TypeScript, bases de données et gestion de projet avec Git.',
         en: 'Software Solutions & Business Applications: software engineering, object-oriented design, TypeScript web development, databases, and Git-based team workflows.',
@@ -591,7 +557,7 @@ export const portfolioData: PortfolioData = {
       // EDIT HERE: Nom de votre lycée
       organization: 'Lycée Professionnel',
       location: { fr: 'France', en: 'France' },
-      period: { fr: '2022 – 2025', en: '2022 – 2025' },
+      period: { fr: '2024 – 2026', en: '2024 – 2026' },
       summary: {
         fr: 'Baccalauréat Professionnel Cybersécurité, Informatique et Réseaux, Électronique obtenu avec la Mention Très Bien. Socle solide en informatique, développement embarqué/logiciel et Linux.',
         en: 'Graduated with Highest Honors (Mention Très Bien). Built strong foundations in computer science, C++/Python programming, and Linux environments.',

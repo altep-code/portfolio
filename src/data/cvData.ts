@@ -84,19 +84,9 @@ function formatLinkText(url: string | undefined): string | undefined {
 }
 
 /**
- * Résumés concis pour le CV A4 afin d'éviter les blocs de texte denses,
- * tout en gardant la synchronisation automatique pour tout nouveau projet ajouté.
+ * Résumés courants du CV : ils utilisent directement les descriptions du
+ * portfolio afin qu'ajout, modification ou retrait d'un projet reste cohérent.
  */
-const CV_CONCISE_PROJECT_SUMMARIES: Record<string, LocalizedText> = {
-  univoid: {
-    fr: 'Moteur voxel/planétaire 3D combinant Godot 4 et extension native Rust (gdext) : génération Marching Cubes, octree LOD adaptatif et gravité procédurale.',
-    en: '3D voxel & planetary engine built with Godot 4 and native Rust (gdext): real-time Marching Cubes meshing, adaptive octree LOD, and procedural gravity.',
-  },
-  'europe-sim-1-1': {
-    fr: 'Simulation monde ouvert à l’échelle réelle 1:1 basée sur les données OpenStreetMap sous Godot 4, reliant conduite, agriculture, industrie et IT.',
-    en: '1:1 scale European open-world simulation powered by OpenStreetMap in Godot 4, uniting driving, farming, factory, and IT gameplay loops.',
-  }
-};
 
 export function buildCvData(): CvData {
   const { profile, socialLinks, skillCategories, projects, timeline } = portfolioData;
@@ -104,11 +94,7 @@ export function buildCvData(): CvData {
   return {
     fullName: `${profile.firstName} ${profile.lastName}`,
     handle: profile.handle,
-    // EDIT HERE: Titre court affiché en haut du CV A4
-    headline: {
-      fr: '1ère année BTS SIO (SLAM) · Bac Pro CIEL (Mention Très Bien)',
-      en: '1st-Year BTS SIO (SLAM) · Bac Pro CIEL (Highest Honors)',
-    },
+    headline: profile.role,
     location: profile.location,
     email: profile.email,
     // EDIT HERE: Ajoutez votre numéro de téléphone si souhaité (ou laissez "" pour masquer)
@@ -119,11 +105,7 @@ export function buildCvData(): CvData {
         label: link.handle,
         href: link.url,
       })),
-    // EDIT HERE: Résumé court calibré pour le CV A4
-    summary: {
-      fr: 'Étudiant en 1ère année de BTS SIO (parcours SLAM) après un Bac Pro CIEL obtenu avec Mention Très Bien, spécialisé en développement temps réel (Godot 4, Rust/gdext, C++, Three.js) et outillage TypeScript/Bun & Python sous Fedora.',
-      en: 'First-year BTS SIO (SLAM track) student following a Bac Pro CIEL with Highest Honors, focused on real-time 3D development (Godot 4, Rust/gdext, C++, Three.js) and TypeScript/Bun & Python tooling on Linux Fedora.',
-    },
+    summary: profile.heroBio,
     sectionTitles: {
       fr: {
         summary: 'Profil',
@@ -151,12 +133,12 @@ export function buildCvData(): CvData {
     projects: projects.map((project) => ({
       name: project.title,
       stack: project.tags.join(' · '),
-      summary: CV_CONCISE_PROJECT_SUMMARIES[project.id] ?? project.description,
+      summary: project.description,
       linkText: formatLinkText(project.links.github) ?? formatLinkText(project.links.demo),
     })),
-    // On évite la redondance avec la section Projets en gardant uniquement les expériences pro / stages
+    // Garder automatiquement toutes les expériences du portfolio.
     experiences: timeline
-      .filter((entry) => entry.kind === 'experience' && entry.id !== 'exp-indie-dev')
+      .filter((entry) => entry.kind === 'experience')
       .map((entry) => ({
         role: entry.role,
         organization: entry.organization,

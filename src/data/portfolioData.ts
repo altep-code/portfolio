@@ -205,48 +205,48 @@ export const portfolioData: PortfolioData = {
   // EDIT HERE: PROFIL & COORDONNÉES DE CONTACT
   // ==========================================================================
   profile: {
-    firstName: 'Léo-Tristan',
+    firstName: 'Léo',
     lastName: 'Girardet',
     handle: 'altep',
-    monogram: 'LTG',
+    monogram: 'LG',
     role: {
-      fr: '1ère année BTS SIO (SLAM) · Développeur Jeux, 3D & Outils',
-      en: '1st-Year BTS SIO (SLAM) · Game, 3D & Tooling Developer',
+      fr: '1ère année BTS SIO (SLAM) · Développeur',
+      en: '1st-Year BTS SIO (SLAM) · Developer',
     },
     availability: {
       fr: 'BTS SIO SLAM · Ouvert aux stages & projets',
       en: 'BTS SIO SLAM · Open to internships & projects',
     },
     location: {
-      fr: 'France · Environnement Linux (Fedora)',
-      en: 'France · Linux (Fedora) Environment',
+      fr: 'France',
+      en: 'France',
     },
     // EDIT HERE: Remplacez par votre véritable adresse e-mail de contact
-    email: 'contact@altep.dev',
+    email: 'leo.girardet.pro@gmail.com',
     heroGreeting: {
       fr: 'Développement temps réel, moteurs 3D & outillage logiciel',
       en: 'Real-time development, 3D engines & software tooling',
     },
     heroHeadline: {
-      fr: 'Je conçois des mondes procéduraux, des simulations temps réel et des outils logiciels locaux.',
-      en: 'I build procedural worlds, real-time simulations, and local-first developer tools.',
+      fr: 'Je conçois des sites web, des mondes procéduraux, des simulations temps réel et des systèmes complexes.',
+      en: 'I build websites, procedural worlds, real-time simulations, and complex systems.',
     },
     heroBio: {
-      fr: "Étudiant en 1ère année de BTS SIO (parcours SLAM) après un Bac Pro CIEL obtenu avec Mention Très Bien. Je développe principalement sous Godot 4 (GDScript & Rust/gdext), C++, TypeScript/Bun et Python, avec un intérêt marqué pour la génération procédurale, la 3D temps réel et les outils respectueux des données.",
-      en: 'First-year BTS SIO (SLAM software track) student after earning a Bac Pro CIEL with Highest Honors (Mention Très Bien). I focus on Godot 4 (GDScript & Rust/gdext), C++, TypeScript/Bun, and Python — building procedural 3D worlds, large-scale simulations, and transparent local-first tools.',
+      fr: "Étudiant en 1ère année de BTS SIO, option SLAM, après l’obtention d’un Bac Pro CIEL avec Mention Très Bien. Je développe principalement avec Godot 4 (GDScript & GLSL), TypeScript/Bun et Python, avec un intérêt particulier pour la génération procédurale, les mondes 3D à grande échelle et les outils locaux respectueux des données.",
+      en: 'First-year BTS SIO student specializing in the SLAM software development track, after earning a Bac Pro CIEL with Highest Honors. I primarily work with Godot 4 (GDScript & GLSL), TypeScript/Bun, and Python, with a focus on procedural generation, large-scale 3D worlds, and privacy-conscious local tools.',
     },
     highlights: [
       {
         value: 'BTS SIO · SLAM',
-        label: { fr: '1ère année (Développement)', en: '1st Year (Software Track)' },
+        label: { fr: '1ère année — Développement', en: 'First year — Software development' },
       },
       {
         value: 'Bac Pro CIEL',
         label: { fr: 'Mention Très Bien', en: 'Highest Honors' },
       },
       {
-        value: 'Godot 4 · Rust · TS',
-        label: { fr: '3D Temps Réel & Outillage', en: 'Real-Time 3D & Tooling' },
+        value: 'Game Dev · Web Dev',
+        label: { fr: 'Systèmes & conception web', en: 'Systems & web development' },
       },
     ],
   },
@@ -261,8 +261,8 @@ export const portfolioData: PortfolioData = {
       id: 'github',
       label: { fr: 'GitHub', en: 'GitHub' },
       // EDIT HERE: Pseudo et URL GitHub
-      handle: 'github.com/altep',
-      url: 'https://github.com/altep',
+      handle: 'github.com/altep-code',
+      url: 'https://github.com/altep-code',
       icon: 'github',
       showInContact: true,
     },
@@ -279,8 +279,8 @@ export const portfolioData: PortfolioData = {
       id: 'contact',
       label: { fr: 'Contact Direct', en: 'Direct Contact' },
       // EDIT HERE: E-mail ou page de contact
-      handle: 'contact@altep.dev',
-      url: 'mailto:contact@altep.dev',
+      handle: ' leo.girardet.pro@gmail.com',
+      url: 'mailto: leo.girardet.pro@gmail.com',
       icon: 'mail',
       showInContact: true,
     },
@@ -305,7 +305,7 @@ export const portfolioData: PortfolioData = {
       items: [
         {
           name: 'GDScript',
-          level: 'core',
+          level: 'advanced',
           note: {
             fr: 'Architecture de scènes, signaux et logique gameplay Godot 4',
             en: 'Scene architecture, signals & gameplay logic in Godot 4',
@@ -313,31 +313,23 @@ export const portfolioData: PortfolioData = {
         },
         {
           name: 'Rust',
-          level: 'core',
+          level: 'proficient',
           note: {
             fr: 'Extensions natives gdext, génération procédurale & performance',
             en: 'Native gdext extensions, procedural generation & performance',
           },
         },
         {
-          name: 'C++',
+          name: 'JS/TS',
           level: 'advanced',
           note: {
-            fr: 'Programmation native, structures de données & optimisation',
-            en: 'Native programming, data structures & optimization',
-          },
-        },
-        {
-          name: 'TypeScript/Bun',
-          level: 'core',
-          note: {
-            fr: 'Applications rapides, tooling data, Vite & Remotion',
-            en: 'Fast apps, data tooling, Vite & Remotion',
+            fr: 'Applications Node.js/Bun, interfaces web modernes',
+            en: 'Node.js/Bun applications and modern web interfaces',
           },
         },
         {
           name: 'Python',
-          level: 'advanced',
+          level: 'proficient',
           note: {
             fr: 'Traitement de données, scripts & prototypage IA locale',
             en: 'Data processing, automation scripts & local AI prototyping',
@@ -360,23 +352,15 @@ export const portfolioData: PortfolioData = {
       items: [
         {
           name: 'Godot 4',
-          level: 'core',
-          note: {
-            fr: 'Rendu 3D, octrees, plugins éditeur et intégration Rust/gdext',
-            en: '3D rendering, octrees, editor tooling & Rust/gdext integration',
-          },
-        },
-        {
-          name: 'Three.js',
           level: 'advanced',
           note: {
-            fr: 'Scènes WebGL interactives et visualisation 3D navigateur',
-            en: 'Interactive WebGL scenes & browser 3D visualization',
+            fr: 'Octrees, Marching Cubes, physique personnalisée',
+            en: 'Octrees, Marching Cubes, and custom physics',
           },
         },
         {
           name: 'Linux (Fedora)',
-          level: 'core',
+          level: 'advanced',
           note: {
             fr: 'Poste de travail quotidien, compilation et environnement dev',
             en: 'Daily workstation OS, native builds & dev environment',
@@ -384,15 +368,15 @@ export const portfolioData: PortfolioData = {
         },
         {
           name: 'Blender',
-          level: 'advanced',
+          level: 'proficient',
           note: {
-            fr: 'Modélisation 3D, UV et export d’assets temps réel pour Godot',
-            en: '3D modeling, UVs & real-time asset export for Godot',
+            fr: 'Modélisation 3D simple, UV et export d’assets temps réel pour Godot',
+            en: 'Simple 3D modeling, UVs & real-time asset export for Godot',
           },
         },
         {
           name: 'Git',
-          level: 'core',
+          level: 'proficient',
           note: {
             fr: 'Gestion de versions, branches propres et collaboration',
             en: 'Version control, clean branching & collaboration',
@@ -415,47 +399,47 @@ export const portfolioData: PortfolioData = {
         en: 'Univoid',
       },
       tagline: {
-        fr: 'Moteur voxel / planétaire Godot 4 + Rust (gdext)',
-        en: 'Voxel & planetary engine built with Godot 4 + Rust (gdext)',
+        fr: 'Moteur voxel / planétaire Godot 4 (GDScript)',
+        en: 'Voxel & planetary engine built with Godot 4 (GDScript)',
       },
       description: {
-        fr: 'Projet 3D combinant Godot 4 et une extension native Rust via gdext pour générer des terrains et corps célestes en temps réel grâce aux Marching Cubes, un octree LOD adaptatif et une gravité procédurale.',
-        en: '3D project pairing Godot 4 with a native Rust gdext extension to generate real-time terrain and celestial bodies using Marching Cubes, an adaptive octree LOD system, and procedural gravity.',
+        fr: 'Projet 3D combinant Godot 4 pour générer des terrains et des corps célestes en temps réel grâce aux Marching Cubes, à un système octree adaptatif et à une gravité procédurale.',
+        en: 'A 3D project built with Godot 4 that generates terrain and celestial bodies in real time using Marching Cubes, an adaptive octree system, and procedural gravity.',
       },
       year: '2026',
       status: { fr: 'En développement', en: 'In Development' },
       featured: true,
-      tags: ['Godot 4', 'Rust', 'gdext', '3D Procédural'],
+      tags: ['Godot 4', '3D Procedural'],
       highlights: {
         fr: [
-          'Extraction de maillages en temps réel via Marching Cubes en Rust (gdext)',
+          'Extraction de maillages en temps réel via Marching Cubes',
           'Gestion multi-échelle par octree LOD et champs de gravité procédurale',
         ],
         en: [
-          'Real-time mesh extraction via Marching Cubes written in Rust (gdext)',
+          'Real-time mesh extraction via Marching Cubes',
           'Multi-scale octree LOD streaming paired with procedural gravity fields',
         ],
       },
       links: {
         // EDIT HERE: Lien GitHub & itch.io/démo de Univoid ("" = zone réservée)
-        github: 'https://github.com/altep/univoid',
+        github: '',
         demo: '',
       },
       accent: 'cyan',
     },
     {
-      id: 'europe-sim-1-1',
+      id: 'open-terra',
       title: {
-        fr: 'Simulation Multi-Métiers 1:1 Europe',
-        en: '1:1 Europe Multi-Trade Simulation',
+        fr: 'Open Terra',
+        en: 'Open Terra',
       },
       tagline: {
-        fr: 'Monde ouvert à l’échelle 1:1 sous Godot 4 & OpenStreetMap',
-        en: '1:1 scale European open world powered by Godot 4 & OpenStreetMap',
+        fr: 'Moteur de grand monde ouvert avec Godot 4 & OpenStreetMap',
+        en: 'Large open-world engine powered by Godot 4 & OpenStreetMap',
       },
       description: {
-        fr: 'Simulation multi-métiers exploitant les données cartographiques OpenStreetMap à l’échelle réelle 1:1 dans Godot 4, articulant plusieurs boucles de gameplay : conduite, agriculture, industrie et informatique.',
-        en: 'Multi-trade simulation streaming real-world 1:1 OpenStreetMap cartography into Godot 4, combining driving, farming, factory automation, and IT gameplay loops.',
+        fr: 'Projet de simulation combinant conduite, agriculture, industrie et informatique dans un monde ouvert alimenté par les données OpenStreetMap.',
+        en: 'A simulation project combining driving, farming, industry, and IT systems in an open world powered by OpenStreetMap data.',
       },
       year: '2026',
       status: { fr: 'Prototype 3D', en: '3D Prototype' },
@@ -473,12 +457,12 @@ export const portfolioData: PortfolioData = {
       },
       links: {
         // EDIT HERE: Lien GitHub & itch.io/démo de Simulation Multi-Métiers 1:1 Europe
-        github: 'https://github.com/altep/europe-sim',
+        github: '',
         demo: '',
       },
       accent: 'violet',
     },
-    {
+    /*{
       id: 'ethic-ai',
       title: {
         fr: 'EthicAI',
@@ -512,7 +496,7 @@ export const portfolioData: PortfolioData = {
         demo: '',
       },
       accent: 'emerald',
-    },
+    },*/
     
   ],
 
@@ -528,12 +512,12 @@ export const portfolioData: PortfolioData = {
         en: 'BTS SIO — SLAM Software Track (1st Year)',
       },
       // EDIT HERE: Nom de votre établissement / lycée
-      organization: 'Établissement BTS SIO (SLAM)',
+      organization: 'Lycée Ella Fitzgerald',
       location: { fr: 'France', en: 'France' },
       period: { fr: '2026 – En cours', en: '2026 – Present' },
       summary: {
-        fr: 'Solutions Logicielles et Applications Métiers : conception logicielle, programmation orientée objet, développement web TypeScript, bases de données et gestion de projet avec Git.',
-        en: 'Software Solutions & Business Applications: software engineering, object-oriented design, TypeScript web development, databases, and Git-based team workflows.',
+        fr: 'La formation BTS SIO, option SLAM, couvre la conception logicielle, la programmation orientée objet, le développement web avec TypeScript, les bases de données et la gestion de projet avec Git.',
+        en: 'The BTS SIO SLAM track covers software engineering, object-oriented programming, TypeScript web development, databases, and Git-based project management.',
       },
       bullets: {
         fr: [
@@ -555,7 +539,7 @@ export const portfolioData: PortfolioData = {
         en: 'Vocational Baccalaureate CIEL — Highest Honors (Mention Très Bien)',
       },
       // EDIT HERE: Nom de votre lycée
-      organization: 'Lycée Professionnel',
+      organization: 'Lycée Professionnel Pierre Desgranges',
       location: { fr: 'France', en: 'France' },
       period: { fr: '2024 – 2026', en: '2024 – 2026' },
       summary: {
@@ -578,54 +562,54 @@ export const portfolioData: PortfolioData = {
       id: 'exp-indie-dev',
       kind: 'experience',
       role: {
-        fr: 'Développeur Indépendant — Jeux 3D & Outils Logiciels',
-        en: 'Independent Developer — 3D Games & Software Tooling',
+        fr: 'Développeur Indépendant — Jeux 3D',
+        en: 'Independent Developer — 3D Games',
       },
-      organization: 'altep · Projets Personnels',
-      location: { fr: 'Linux (Fedora)', en: 'Linux (Fedora)' },
-      period: { fr: '2024 – Présent', en: '2024 – Present' },
+      organization: '',
+      location: { fr: 'France', en: 'France' },
+      period: { fr: '2022 – Présent', en: '2022 – Present' },
       summary: {
-        fr: 'Conception et prototypage de moteurs 3D procéduraux (Univoid), de simulations à échelle réelle (Simulation Multi-Métiers 1:1 Europe) et d’outils TypeScript/Bun local-first.',
-        en: 'Designing and prototyping procedural 3D engines (Univoid), 1:1 scale open-world simulations (Europe Multi-Trade Sim), and local-first TypeScript/Bun tools.',
+        fr: 'Création indépendante de jeux vidéo depuis 2022, puis migration de Unity vers Godot 4 pour bénéficier d’un moteur plus ouvert et entièrement modifiable.',
+        en: 'Independent video game development since 2022, followed by a migration from Unity to Godot 4 for greater flexibility and engine customization.',
       },
       bullets: {
         fr: [
-          'Intégration Godot 4 + Rust (gdext) pour la génération de maillages Marching Cubes et octrees LOD.',
-          'Création d’assets 3D sous Blender et visualisation WebGL via Three.js.',
+          'Utilisation de Godot 4 pour la génération de maillages Marching Cubes et octrees LOD.',
+          'Création d’assets 3D sous Blender et importation dans Godot.',
         ],
         en: [
-          'Bridged Godot 4 and Rust (gdext) for Marching Cubes mesh generation and octree LOD.',
-          'Authored 3D assets in Blender and interactive WebGL scenes with Three.js.',
+          'Built projects with Godot 4, including Marching Cubes mesh generation and octree-based LOD.',
+          'Created 3D assets in Blender and imported them into Godot.',
         ],
       },
-      tags: ['Godot 4', 'Rust', 'GDScript', 'Blender', 'Three.js'],
+      tags: ['Godot 4', 'GDScript'],
     },
     {
-      id: 'exp-stages-ciel',
+      id: 'exp-web-dev',
       kind: 'experience',
       role: {
-        fr: 'Stagiaire Développement & Outillage (PFMP Bac Pro)',
-        en: 'Software & Tooling Intern (Vocational Internships)',
+        fr: 'Développeur Web',
+        en: 'Web Developer',
       },
       // EDIT HERE: Renseignez le nom de l'entreprise ou structure de vos stages
-      organization: 'Stages en entreprise (Bac Pro CIEL)',
+      organization: '',
       location: { fr: 'France', en: 'France' },
-      period: { fr: '2023 – 2025', en: '2023 – 2025' },
+      period: { fr: '2021 – Présent', en: '2021 – Présent' },
       summary: {
-        fr: 'Périodes de formation en milieu professionnel axées sur le développement applicatif, le scripting d’automatisation Python et le maintien d’outils internes sous Linux.',
-        en: 'Industry internship periods focused on application development, Python automation scripting, and maintaining internal developer tools on Linux.',
+        fr: 'Conception et développement de sites web depuis 2021, avec des technologies front-end telles que Vite et des technologies back-end telles que Node.js et Bun.',
+        en: 'Website design and development since 2021, using front-end technologies such as Vite and back-end technologies such as Node.js and Bun.',
       },
       bullets: {
         fr: [
-          'Développement de scripts utilitaires en Python et TypeScript pour automatiser des tâches métier.',
-          'Travail collaboratif avec Git, documentation technique et tests fonctionnels.',
+          'Création de maquettes dans Figma puis intégration fidèle en HTML et CSS.',
+          'Utilisation de technologies front-end et back-end adaptées à chaque projet.',
         ],
         en: [
-          'Built utility scripts in Python and TypeScript to automate internal workflows.',
-          'Collaborated using Git, technical documentation, and functional testing.',
+          'Created layouts in Figma and reproduced them faithfully with HTML and CSS.',
+          'Used appropriate front-end and back-end technologies for each project.',
         ],
       },
-      tags: ['Python', 'TypeScript', 'Git', 'Linux'],
+      tags: ['TS/JS', 'HTML', 'Web'],
     },
   ],
 

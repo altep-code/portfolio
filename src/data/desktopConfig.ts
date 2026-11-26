@@ -109,7 +109,7 @@ export const desktopConfig: DesktopConfig = {
     },
     {
       id: 'icon-projects',
-      title: { fr: 'Projets (4)', en: 'Projects (4)' },
+      title: { fr: 'Projets (2)', en: 'Projects (2)' },
       icon: 'folder-code',
       accent: 'violet',
       position: { col: 1, row: 2 },

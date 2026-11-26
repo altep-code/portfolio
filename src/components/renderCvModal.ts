@@ -24,18 +24,24 @@ export function renderCvModalHtml(
 
   const experiencesHtml = cv.experiences
     .map(
-      (exp) => `
+      (exp) => {
+        const organizationMeta = exp.organization.trim()
+          ? `${escapeHtml(exp.organization)} · ${escapeHtml(exp.location[locale])}`
+          : escapeHtml(exp.location[locale]);
+
+        return `
       <div class="cv-entry">
         <div class="cv-entry__row">
           <span class="cv-entry__title">${escapeHtml(exp.role[locale])}</span>
           <span class="cv-entry__meta">${escapeHtml(exp.period[locale])}</span>
         </div>
-        <div class="cv-entry__sub">${escapeHtml(exp.organization)} · ${escapeHtml(exp.location[locale])}</div>
+        <div class="cv-entry__sub">${organizationMeta}</div>
         <ul class="cv-entry__bullets">
           ${exp.bullets[locale].map((b) => `<li>${escapeHtml(b)}</li>`).join('')}
         </ul>
       </div>
-    `
+    `;
+      }
     )
     .join('');
 
@@ -134,50 +140,57 @@ export function renderCvModalHtml(
 
         <article class="cv-sheet" id="cv-a4-sheet">
           <header class="cv-header">
-            <div class="cv-header__left">
-              <h1 class="cv-header__name">${escapeHtml(cv.fullName)} <span class="cv-header__handle">@${escapeHtml(cv.handle)}</span></h1>
+            <div class="cv-header__identity">
+              <p class="cv-header__eyebrow">${escapeHtml(cv.handle)}</p>
+              <h1 class="cv-header__name">${escapeHtml(cv.fullName)}</h1>
               <p class="cv-header__headline">${escapeHtml(cv.headline[locale])}</p>
             </div>
-            <div class="cv-header__right">
+            <address class="cv-header__right">
               <span>${escapeHtml(cv.location[locale])}</span>
               <a href="mailto:${escapeHtml(cv.email)}">${escapeHtml(cv.email)}</a>
               ${phoneHtml}
               <div class="cv-header__links">${linksHtml}</div>
-            </div>
+            </address>
           </header>
 
-          <section class="cv-section">
-            <h2 class="cv-section__title">${escapeHtml(titles.summary)}</h2>
-            <p class="cv-summary">${escapeHtml(cv.summary[locale])}</p>
-          </section>
+          <div class="cv-layout">
+            <main class="cv-main">
+              <section class="cv-section cv-section--profile">
+                <h2 class="cv-section__title">${escapeHtml(titles.summary)}</h2>
+                <p class="cv-summary">${escapeHtml(cv.summary[locale])}</p>
+              </section>
 
-          <section class="cv-section">
-            <h2 class="cv-section__title">${escapeHtml(titles.skills)}</h2>
-            <div class="cv-skills-grid">${skillsHtml}</div>
-          </section>
+              ${experienceSectionHtml}
 
-          <section class="cv-section">
-            <h2 class="cv-section__title">${escapeHtml(titles.projects)}</h2>
-            <div class="cv-projects-grid">${projectsHtml}</div>
-          </section>
+              <section class="cv-section">
+                <h2 class="cv-section__title">${escapeHtml(titles.projects)}</h2>
+                <div class="cv-projects-grid">${projectsHtml}</div>
+              </section>
+            </main>
 
-          <section class="cv-section">
-            <h2 class="cv-section__title">${escapeHtml(titles.education)}</h2>
-            <div class="cv-section__body cv-stack-md">${educationHtml}</div>
-          </section>
+            <aside class="cv-aside">
+              <section class="cv-section">
+                <h2 class="cv-section__title">${escapeHtml(titles.skills)}</h2>
+                <div class="cv-skills-grid">${skillsHtml}</div>
+              </section>
 
-          ${experienceSectionHtml}
+              <section class="cv-section">
+                <h2 class="cv-section__title">${escapeHtml(titles.education)}</h2>
+                <div class="cv-section__body cv-stack-md">${educationHtml}</div>
+              </section>
 
-          <section class="cv-section cv-footer-split">
-            <div>
-              <h2 class="cv-section__title">${escapeHtml(titles.languages)}</h2>
-              <ul class="cv-lang-list">${languagesHtml}</ul>
-            </div>
-            <div>
-              <h2 class="cv-section__title">${escapeHtml(titles.interests)}</h2>
-              <p class="cv-interests">${escapeHtml(cv.interests[locale])}</p>
-            </div>
-          </section>
+              <section class="cv-section cv-footer-split">
+                <div>
+                  <h2 class="cv-section__title">${escapeHtml(titles.languages)}</h2>
+                  <ul class="cv-lang-list">${languagesHtml}</ul>
+                </div>
+                <div>
+                  <h2 class="cv-section__title">${escapeHtml(titles.interests)}</h2>
+                  <p class="cv-interests">${escapeHtml(cv.interests[locale])}</p>
+                </div>
+              </section>
+            </aside>
+          </div>
         </article>
       </div>
     </div>

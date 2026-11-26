@@ -45,11 +45,6 @@ function renderDesktopIconItem(iconCfg: DesktopIconConfig, state: OsState): stri
         ${runningDotHtml}
       </span>
       <span class="desktop-icon__label">${escapeHtml(iconCfg.title[locale])}</span>
-      ${
-        iconCfg.subtitle
-          ? `<span class="desktop-icon__sub">${escapeHtml(iconCfg.subtitle[locale])}</span>`
-          : ''
-      }
     </button>
   `;
 }

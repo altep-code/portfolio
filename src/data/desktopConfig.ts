@@ -5,7 +5,7 @@
  * Modifiez ce fichier pour personnaliser :
  *   - Le nom/version affichés dans la barre supérieure et le dock
  *   - Le mode d'ouverture des icônes ('single' ou 'double' clic)
- *   - Les icônes du bureau (titre, sous-titre, icône, couleur, position grille, action)
+ *   - Les icônes du bureau (titre, icône, couleur, position grille, action)
  *   - Les fenêtres applicatives (titre, taille/position par défaut, ouverture au démarrage)
  *
  * Astuce : recherchez `// EDIT HERE:` pour modifier ou ajouter une icône.
@@ -41,7 +41,6 @@ export type DesktopAction =
 export interface DesktopIconConfig {
   id: string;
   title: LocalizedText;
-  subtitle?: LocalizedText;
   icon: DesktopIconKey;
   accent: DesktopAccent;
   /** Position sur la grille du bureau (1-based : col 1..N, row 1..5) */
@@ -103,7 +102,6 @@ export const desktopConfig: DesktopConfig = {
     {
       id: 'icon-about',
       title: { fr: 'Profil & Contact', en: 'Profile & Contact' },
-      subtitle: { fr: 'altep.sys', en: 'altep.sys' },
       icon: 'user',
       accent: 'cyan',
       position: { col: 1, row: 1 },
@@ -112,7 +110,6 @@ export const desktopConfig: DesktopConfig = {
     {
       id: 'icon-projects',
       title: { fr: 'Projets (4)', en: 'Projects (4)' },
-      subtitle: { fr: 'Univoid · HIiF', en: 'Univoid · HIiF' },
       icon: 'folder-code',
       accent: 'violet',
       position: { col: 1, row: 2 },
@@ -121,7 +118,6 @@ export const desktopConfig: DesktopConfig = {
     {
       id: 'icon-skills',
       title: { fr: 'Compétences', en: 'Skills Matrix' },
-      subtitle: { fr: 'Dev & Outillage', en: 'Dev & Tooling' },
       icon: 'cpu',
       accent: 'emerald',
       position: { col: 1, row: 3 },
@@ -130,7 +126,6 @@ export const desktopConfig: DesktopConfig = {
     {
       id: 'icon-journey',
       title: { fr: 'Parcours', en: 'Background' },
-      subtitle: { fr: 'BTS SIO · CIEL', en: 'BTS SIO · CIEL' },
       icon: 'compass',
       accent: 'rose',
       position: { col: 1, row: 4 },
@@ -139,7 +134,6 @@ export const desktopConfig: DesktopConfig = {
     {
       id: 'icon-terminal',
       title: { fr: 'Terminal', en: 'Terminal' },
-      subtitle: { fr: 'Shell rapide', en: 'Quick Shell' },
       icon: 'terminal',
       accent: 'amber',
       position: { col: 1, row: 5 },
@@ -148,7 +142,6 @@ export const desktopConfig: DesktopConfig = {
     {
       id: 'icon-github',
       title: { fr: 'GitHub', en: 'GitHub' },
-      subtitle: { fr: '@altep', en: '@altep' },
       icon: 'github',
       accent: 'cyan',
       position: { col: 2, row: 1 },
@@ -158,7 +151,6 @@ export const desktopConfig: DesktopConfig = {
     {
       id: 'icon-itchio',
       title: { fr: 'itch.io', en: 'itch.io' },
-      subtitle: { fr: 'Démos Godot', en: 'Godot Demos' },
       icon: 'itchio',
       accent: 'rose',
       position: { col: 2, row: 2 },
@@ -168,7 +160,6 @@ export const desktopConfig: DesktopConfig = {
     {
       id: 'icon-lang',
       title: { fr: 'Langue : FR / EN', en: 'Language: EN / FR' },
-      subtitle: { fr: 'Bascule instant.', en: 'Instant switch' },
       icon: 'globe',
       accent: 'cyan',
       position: { col: 2, row: 3 },
@@ -177,7 +168,6 @@ export const desktopConfig: DesktopConfig = {
     {
       id: 'icon-cv-print',
       title: { fr: 'CV Classique A4', en: 'Classic CV (A4)' },
-      subtitle: { fr: 'Print / PDF', en: 'Print / PDF' },
       icon: 'printer',
       accent: 'emerald',
       position: { col: 2, row: 4 },

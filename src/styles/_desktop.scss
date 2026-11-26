@@ -124,7 +124,7 @@ body.is-cv-open {
 .desktop-icons {
   display: grid;
   grid-auto-flow: column;
-  grid-template-rows: repeat(5, 102px);
+  grid-template-rows: repeat(5, 88px);
   grid-auto-columns: 112px;
   gap: 0.45rem;
   width: fit-content;
@@ -137,7 +137,7 @@ body.is-cv-open {
   grid-row: var(--row, auto);
   position: relative;
   width: 108px;
-  min-height: 96px;
+  min-height: 82px;
   padding: 0.55rem 0.4rem;
   border-radius: var(--radius-sm);
   display: flex;
@@ -250,13 +250,6 @@ body.is-cv-open {
     font-weight: 600;
     line-height: 1.2;
     color: var(--text-primary);
-  }
-
-  &__sub {
-    font-family: var(--font-mono);
-    font-size: 0.62rem;
-    color: var(--text-muted);
-    margin-top: -0.18rem;
   }
 }
 

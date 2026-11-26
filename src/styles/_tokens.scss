@@ -1,0 +1,84 @@
+// ============================================================================
+// DESIGN TOKENS: CYBER-WORKSTATION / DEVELOPER OS (GITHUB-DARK INSPIRED)
+// ============================================================================
+
+:root {
+  --font-display: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --radius-xs: 4px;
+  --radius-sm: 6px;
+  --radius-md: 8px;
+
+  --transition-fast: 140ms cubic-bezier(0.2, 0, 0, 1);
+  --transition-med: 220ms cubic-bezier(0.2, 0, 0, 1);
+}
+
+html[data-theme='dark'] {
+  color-scheme: dark;
+  --bg-canvas: #0d1117;
+  --bg-recessed: #010409;
+  --bg-surface: #161b22;
+  --bg-surface-translucent: rgba(22, 27, 34, 0.95);
+  --bg-header: #1c2128;
+  --bg-hover: #21262d;
+
+  --border-default: #30363d;
+  --border-muted: #21262d;
+  --border-strong: #484f58;
+  --grid-line: rgba(48, 54, 61, 0.35);
+
+  --text-primary: #e6edf3;
+  --text-secondary: #9da7b3;
+  --text-muted: #848d97;
+
+  --accent-cyan: #58a6ff;
+  --accent-violet: #a371f7;
+  --accent-emerald: #3fb950;
+  --accent-emerald-solid: #238636;
+  --accent-rose: #f85149;
+  --accent-amber: #d29922;
+
+  --cta-bg: #238636;
+  --cta-bg-hover: #2ea043;
+  --cta-border: rgba(240, 246, 252, 0.14);
+  --cta-text: #ffffff;
+
+  --shadow-window: 0 18px 42px rgba(1, 4, 9, 0.72);
+  --shadow-focused: 0 24px 60px rgba(1, 4, 9, 0.88);
+}
+
+html[data-theme='light'] {
+  color-scheme: light;
+  --bg-canvas: #f6f8fa;
+  --bg-recessed: #eaeef2;
+  --bg-surface: #ffffff;
+  --bg-surface-translucent: rgba(255, 255, 255, 0.96);
+  --bg-header: #f6f8fa;
+  --bg-hover: #eef1f5;
+
+  --border-default: #d0d7de;
+  --border-muted: #d8dee4;
+  --border-strong: #8c959f;
+  --grid-line: rgba(208, 215, 222, 0.55);
+
+  --text-primary: #1f2328;
+  --text-secondary: #4d555e;
+  --text-muted: #59636e;
+
+  --accent-cyan: #0969da;
+  --accent-violet: #8250df;
+  --accent-emerald: #1a7f37;
+  --accent-emerald-solid: #1f883d;
+  --accent-rose: #cf222e;
+  --accent-amber: #9a6700;
+
+  --cta-bg: #1f883d;
+  --cta-bg-hover: #1a7f37;
+  --cta-border: rgba(31, 35, 40, 0.15);
+  --cta-text: #ffffff;
+
+  --shadow-window: 0 14px 36px rgba(31, 35, 40, 0.14);
+  --shadow-focused: 0 20px 52px rgba(31, 35, 40, 0.22);
+}

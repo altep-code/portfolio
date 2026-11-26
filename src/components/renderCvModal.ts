@@ -18,7 +18,7 @@ export function renderCvModalHtml(
         ? `<a href="${escapeHtml(link.href)}" target="_blank" rel="noopener noreferrer">${escapeHtml(link.label)}</a>`
         : `<span>${escapeHtml(link.label)}</span>`
     )
-    .join('<span aria-hidden="true">·</span>');
+    .join('<span class="cv-dot" aria-hidden="true">·</span>');
 
   const phoneHtml = cv.phone.trim() ? `<span>${escapeHtml(cv.phone)}</span>` : '';
 
@@ -28,9 +28,9 @@ export function renderCvModalHtml(
       <div class="cv-entry">
         <div class="cv-entry__row">
           <span class="cv-entry__title">${escapeHtml(exp.role[locale])}</span>
-          <span class="cv-entry__period">${escapeHtml(exp.period[locale])}</span>
+          <span class="cv-entry__meta">${escapeHtml(exp.period[locale])}</span>
         </div>
-        <div class="cv-entry__sub">${escapeHtml(exp.organization)} — ${escapeHtml(exp.location[locale])}</div>
+        <div class="cv-entry__sub">${escapeHtml(exp.organization)} · ${escapeHtml(exp.location[locale])}</div>
         <ul class="cv-entry__bullets">
           ${exp.bullets[locale].map((b) => `<li>${escapeHtml(b)}</li>`).join('')}
         </ul>
@@ -42,16 +42,15 @@ export function renderCvModalHtml(
   const projectsHtml = cv.projects
     .map(
       (proj) => `
-      <div class="cv-entry">
-        <div class="cv-entry__row">
-          <span class="cv-entry__title">${escapeHtml(proj.name[locale])}</span>
-          <span class="cv-entry__period">${escapeHtml(proj.stack)}</span>
-        </div>
-        <p class="cv-entry__detail">
-          ${escapeHtml(proj.summary[locale])}${
-            proj.linkText ? ` — ${escapeHtml(proj.linkText)}` : ''
-          }
-        </p>
+      <div class="cv-project-card">
+        <div class="cv-project-card__title">${escapeHtml(proj.name[locale])}</div>
+        <div class="cv-project-card__stack">${escapeHtml(proj.stack)}</div>
+        <p class="cv-project-card__summary">${escapeHtml(proj.summary[locale])}</p>
+        ${
+          proj.linkText
+            ? `<div class="cv-project-card__link">${escapeHtml(proj.linkText)}</div>`
+            : ''
+        }
       </div>
     `
     )
@@ -63,9 +62,9 @@ export function renderCvModalHtml(
       <div class="cv-entry">
         <div class="cv-entry__row">
           <span class="cv-entry__title">${escapeHtml(edu.degree[locale])}</span>
-          <span class="cv-entry__period">${escapeHtml(edu.period[locale])}</span>
+          <span class="cv-entry__meta">${escapeHtml(edu.period[locale])}</span>
         </div>
-        <div class="cv-entry__sub">${escapeHtml(edu.school)} — ${escapeHtml(edu.location[locale])}</div>
+        <div class="cv-entry__sub">${escapeHtml(edu.school)} · ${escapeHtml(edu.location[locale])}</div>
         <p class="cv-entry__detail">${escapeHtml(edu.details[locale])}</p>
       </div>
     `
@@ -90,12 +89,12 @@ export function renderCvModalHtml(
     )
     .join('');
 
-  const experienceBlockHtml =
+  const experienceSectionHtml =
     cv.experiences.length > 0
       ? `
-          <section class="cv-swiss-block">
-            <div class="cv-swiss-block__label">${escapeHtml(titles.experience)}</div>
-            <div class="cv-swiss-block__content">${experiencesHtml}</div>
+          <section class="cv-section">
+            <h2 class="cv-section__title">${escapeHtml(titles.experience)}</h2>
+            <div class="cv-section__body cv-stack-md">${experiencesHtml}</div>
           </section>
         `
       : '';
@@ -134,50 +133,49 @@ export function renderCvModalHtml(
         <p class="cv-modal__hint">${escapeHtml(ui.cvModal.hint)}</p>
 
         <article class="cv-sheet" id="cv-a4-sheet">
-          <header class="cv-swiss-header">
-            <div>
-              <h1 class="cv-swiss-header__name">${escapeHtml(cv.fullName)} <span class="cv-swiss-header__handle">(${escapeHtml(cv.handle)})</span></h1>
-              <p class="cv-swiss-header__headline">${escapeHtml(cv.headline[locale])}</p>
+          <header class="cv-header">
+            <div class="cv-header__left">
+              <h1 class="cv-header__name">${escapeHtml(cv.fullName)} <span class="cv-header__handle">@${escapeHtml(cv.handle)}</span></h1>
+              <p class="cv-header__headline">${escapeHtml(cv.headline[locale])}</p>
             </div>
-            <div class="cv-swiss-header__meta">
+            <div class="cv-header__right">
               <span>${escapeHtml(cv.location[locale])}</span>
               <a href="mailto:${escapeHtml(cv.email)}">${escapeHtml(cv.email)}</a>
               ${phoneHtml}
-              <div class="cv-swiss-header__links">${linksHtml}</div>
+              <div class="cv-header__links">${linksHtml}</div>
             </div>
           </header>
 
-          <section class="cv-swiss-block">
-            <div class="cv-swiss-block__label">${escapeHtml(titles.summary)}</div>
-            <div class="cv-swiss-block__content">
-              <p class="cv-summary">${escapeHtml(cv.summary[locale])}</p>
-            </div>
+          <section class="cv-section">
+            <h2 class="cv-section__title">${escapeHtml(titles.summary)}</h2>
+            <p class="cv-summary">${escapeHtml(cv.summary[locale])}</p>
           </section>
 
-          <section class="cv-swiss-block">
-            <div class="cv-swiss-block__label">${escapeHtml(titles.skills)}</div>
-            <div class="cv-swiss-block__content">
-              <div class="cv-skills-table">${skillsHtml}</div>
-            </div>
+          <section class="cv-section">
+            <h2 class="cv-section__title">${escapeHtml(titles.skills)}</h2>
+            <div class="cv-skills-grid">${skillsHtml}</div>
           </section>
 
-          <section class="cv-swiss-block">
-            <div class="cv-swiss-block__label">${escapeHtml(titles.projects)}</div>
-            <div class="cv-swiss-block__content">${projectsHtml}</div>
+          <section class="cv-section">
+            <h2 class="cv-section__title">${escapeHtml(titles.projects)}</h2>
+            <div class="cv-projects-grid">${projectsHtml}</div>
           </section>
 
-          <section class="cv-swiss-block">
-            <div class="cv-swiss-block__label">${escapeHtml(titles.education)}</div>
-            <div class="cv-swiss-block__content">${educationHtml}</div>
+          <section class="cv-section">
+            <h2 class="cv-section__title">${escapeHtml(titles.education)}</h2>
+            <div class="cv-section__body cv-stack-md">${educationHtml}</div>
           </section>
 
-          ${experienceBlockHtml}
+          ${experienceSectionHtml}
 
-          <section class="cv-swiss-block">
-            <div class="cv-swiss-block__label">${escapeHtml(titles.languages)}</div>
-            <div class="cv-swiss-block__content">
+          <section class="cv-section cv-footer-split">
+            <div>
+              <h2 class="cv-section__title">${escapeHtml(titles.languages)}</h2>
               <ul class="cv-lang-list">${languagesHtml}</ul>
-              <p class="cv-entry__detail"><strong>${escapeHtml(titles.interests)} :</strong> ${escapeHtml(cv.interests[locale])}</p>
+            </div>
+            <div>
+              <h2 class="cv-section__title">${escapeHtml(titles.interests)}</h2>
+              <p class="cv-interests">${escapeHtml(cv.interests[locale])}</p>
             </div>
           </section>
         </article>

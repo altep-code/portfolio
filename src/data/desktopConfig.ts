@@ -79,8 +79,8 @@ export interface DesktopConfig {
 
 export const desktopConfig: DesktopConfig = {
   // EDIT HERE: Nom de l'environnement affiché dans la barre supérieure et le dock
-  osName: 'WorkstationOS',
-  osVersion: 'Fedora · SLAM',
+  osName: 'PortfolioOS',
+  osVersion: '1.0',
   iconTrigger: 'single',
 
   // EDIT HERE: Raccourcis cliquables en haut du Terminal

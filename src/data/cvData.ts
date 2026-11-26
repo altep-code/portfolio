@@ -5,11 +5,7 @@
  * Le CV A4 réutilise automatiquement le profil, les liens, les compétences,
  * les 4 projets et le parcours depuis `src/data/portfolioData.ts`.
  *
- * Modifiez ici uniquement les champs spécifiques au document A4 imprimable :
- *   - `headline` & `summary` condensés pour tenir sur une page A4
- *   - `phone` (laisser "" pour ne pas l'afficher)
- *   - `spokenLanguages` & `interests`
- *   - `sectionTitles` (FR / EN)
+ * Les descriptions sont calibrées pour rester aérées et lisibles sur 1 page A4.
  */
 
 import { portfolioData, type Locale, type LocalizedList, type LocalizedText } from './portfolioData';
@@ -87,6 +83,21 @@ function formatLinkText(url: string | undefined): string | undefined {
   return clean.replace(/^https?:\/\//, '');
 }
 
+/**
+ * Résumés concis pour le CV A4 afin d'éviter les blocs de texte denses,
+ * tout en gardant la synchronisation automatique pour tout nouveau projet ajouté.
+ */
+const CV_CONCISE_PROJECT_SUMMARIES: Record<string, LocalizedText> = {
+  univoid: {
+    fr: 'Moteur voxel/planétaire 3D combinant Godot 4 et extension native Rust (gdext) : génération Marching Cubes, octree LOD adaptatif et gravité procédurale.',
+    en: '3D voxel & planetary engine built with Godot 4 and native Rust (gdext): real-time Marching Cubes meshing, adaptive octree LOD, and procedural gravity.',
+  },
+  'europe-sim-1-1': {
+    fr: 'Simulation monde ouvert à l’échelle réelle 1:1 basée sur les données OpenStreetMap sous Godot 4, reliant conduite, agriculture, industrie et IT.',
+    en: '1:1 scale European open-world simulation powered by OpenStreetMap in Godot 4, uniting driving, farming, factory, and IT gameplay loops.',
+  }
+};
+
 export function buildCvData(): CvData {
   const { profile, socialLinks, skillCategories, projects, timeline } = portfolioData;
 
@@ -95,8 +106,8 @@ export function buildCvData(): CvData {
     handle: profile.handle,
     // EDIT HERE: Titre court affiché en haut du CV A4
     headline: {
-      fr: 'Étudiant 1ère année BTS SIO (SLAM) · Développeur Godot 4, Rust, C++, TypeScript/Bun & Python',
-      en: '1st-Year BTS SIO (SLAM) Student · Godot 4, Rust, C++, TypeScript/Bun & Python Developer',
+      fr: '1ère année BTS SIO (SLAM) · Bac Pro CIEL (Mention Très Bien)',
+      en: '1st-Year BTS SIO (SLAM) · Bac Pro CIEL (Highest Honors)',
     },
     location: profile.location,
     email: profile.email,
@@ -108,43 +119,44 @@ export function buildCvData(): CvData {
         label: link.handle,
         href: link.url,
       })),
-    // EDIT HERE: Résumé court calibré pour tenir sur une seule page A4
+    // EDIT HERE: Résumé court calibré pour le CV A4
     summary: {
-      fr: "Étudiant en 1ère année de BTS SIO (parcours SLAM) après un Bac Pro CIEL obtenu avec Mention Très Bien. Orienté développement logiciel, moteurs 3D temps réel (Godot 4, Rust/gdext, C++, Three.js) et applications TypeScript/Bun & Python sous Linux (Fedora).",
-      en: 'First-year BTS SIO (SLAM software track) student following a Bac Pro CIEL with Highest Honors. Focused on software engineering, real-time 3D engines (Godot 4, Rust/gdext, C++, Three.js), and TypeScript/Bun & Python applications on Linux (Fedora).',
+      fr: 'Étudiant en 1ère année de BTS SIO (parcours SLAM) après un Bac Pro CIEL obtenu avec Mention Très Bien, spécialisé en développement temps réel (Godot 4, Rust/gdext, C++, Three.js) et outillage TypeScript/Bun & Python sous Fedora.',
+      en: 'First-year BTS SIO (SLAM track) student following a Bac Pro CIEL with Highest Honors, focused on real-time 3D development (Godot 4, Rust/gdext, C++, Three.js) and TypeScript/Bun & Python tooling on Linux Fedora.',
     },
     sectionTitles: {
       fr: {
         summary: 'Profil',
-        experience: 'Expériences & Pratique',
+        experience: 'Expériences',
         projects: 'Projets Principaux',
         education: 'Formation',
-        skills: 'Compétences',
+        skills: 'Compétences Techniques',
         languages: 'Langues',
         interests: 'Centres d’intérêt',
       },
       en: {
         summary: 'Profile',
-        experience: 'Experience & Practice',
+        experience: 'Experience',
         projects: 'Core Projects',
         education: 'Education',
-        skills: 'Skills',
+        skills: 'Technical Skills',
         languages: 'Languages',
         interests: 'Interests',
       },
     },
     skills: skillCategories.map((cat) => ({
       category: cat.title,
-      items: cat.items.map((item) => item.name).join(', '),
+      items: cat.items.map((item) => item.name).join(' · '),
     })),
     projects: projects.map((project) => ({
       name: project.title,
       stack: project.tags.join(' · '),
-      summary: project.description,
+      summary: CV_CONCISE_PROJECT_SUMMARIES[project.id] ?? project.description,
       linkText: formatLinkText(project.links.github) ?? formatLinkText(project.links.demo),
     })),
+    // On évite la redondance avec la section Projets en gardant uniquement les expériences pro / stages
     experiences: timeline
-      .filter((entry) => entry.kind === 'experience')
+      .filter((entry) => entry.kind === 'experience' && entry.id !== 'exp-indie-dev')
       .map((entry) => ({
         role: entry.role,
         organization: entry.organization,
@@ -170,15 +182,15 @@ export function buildCvData(): CvData {
       {
         name: { fr: 'Anglais', en: 'English' },
         level: {
-          fr: 'Technique & lecture documentaire courante',
+          fr: 'Technique courant (lecture / rédaction)',
           en: 'Proficient technical reading & writing',
         },
       },
     ],
     // EDIT HERE: Centres d'intérêt
     interests: {
-      fr: 'Génération procédurale 3D, open data civique, IA locale & traçable, création d’assets Blender, écosystème Linux Fedora.',
-      en: 'Procedural 3D generation, civic open data, local & traceable AI, Blender 3D modeling, Linux Fedora ecosystem.',
+      fr: 'Génération procédurale 3D, open data civique, IA locale & traçable, modélisation Blender, Linux Fedora.',
+      en: 'Procedural 3D generation, civic open data, local & traceable AI, Blender modeling, Linux Fedora.',
     },
   };
 }
